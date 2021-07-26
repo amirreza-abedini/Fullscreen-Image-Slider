@@ -4,4 +4,4 @@ this is a simple JavaScript slider. I tried to explain every step in each file s
 
 #### Languages used
 
-HTML, CSS and javascript
+HTML, CSS and JavaScript
