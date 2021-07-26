@@ -1,6 +1,6 @@
 ## Fullscreen Image Slider
 
-In this project i made a simple slider that is automatically change slides and also you have the ability to change the slides manually.
+this is a simple JavaScript slider. I tried to explain every step in each file so hopefully you enjoy this project and learn something new
 
 #### Languages used
 
