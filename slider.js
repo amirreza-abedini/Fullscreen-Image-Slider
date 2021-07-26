@@ -3,22 +3,22 @@ let slideImages = document.querySelectorAll(".slide"),
   nextBtn = document.querySelector(".arrow-right"),
   current = 0;
 
-function reset() {
+const reset = () => {
   for (let i = 0; i < slideImages.length; i++) {
     slideImages[i].style.display = "none";
   }
-}
+};
 
-function startSlide() {
+const startSlide = () => {
   reset();
   slideImages[0].style.display = "block";
-}
+};
 
-function prevSlide() {
+const prevSlide = () => {
   reset();
   slideImages[current - 1].style.display = "block";
   current--;
-}
+};
 
 prevBtn.addEventListener("click", () => {
   if (current === 0) {
@@ -27,17 +27,42 @@ prevBtn.addEventListener("click", () => {
   prevSlide();
 });
 
-function nextSlide() {
+const nextSlide = () => {
   reset();
   slideImages[current + 1].style.display = "block";
   current++;
-}
+};
 
-nextBtn.addEventListener("click", () => {
+const setSlide = () => {
   if (current === slideImages.length - 1) {
     current = -1;
   }
+};
+
+nextBtn.addEventListener("click", () => {
+  setSlide();
   nextSlide();
+  if (automate) {
+    clearInterval(intervalID);
+
+    intervalID = setInterval(() => {
+      setSlide();
+      nextSlide();
+    }, 3000);
+  }
 });
 
 startSlide();
+
+let intervalID = null;
+
+let automate = true;
+
+if (automate) {
+  clearInterval(intervalID);
+
+  intervalID = setInterval(() => {
+    setSlide();
+    nextSlide();
+  }, 3000);
+}
